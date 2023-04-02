@@ -28,6 +28,13 @@ const transporter = nodemailer.createTransport({
 
 app.use(express.json());
 
+app.get("/feedback", (req, res) => {
+  res.writeHead(302, {
+    'Location': 'https://bezadreska.ru/404.html'
+  });
+  res.end();
+})
+
 app.post("/feedback", (req, res) => {
   const { name, number, message } = req.body;
   const date = new Date();
